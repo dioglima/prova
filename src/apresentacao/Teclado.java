@@ -6,7 +6,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Teclado extends JPanel {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Teclado extends JPanel implements ActionListener {
 
 	private Display display;
 	
@@ -20,22 +23,32 @@ public class Teclado extends JPanel {
 	
 	public Teclado() {
 		
-		setLayout(new GridLayout(3,4));
+		setLayout(new GridLayout(6,1));
 		
 		add(labelPessoa);
-		add(new JTextField(null,"",10));
+		add(criarTexto("",5));
 		add(labelCarro);
-		add(new JTextField(null,"",5));
+		add(criarTexto("",5));
 		
 		add(labelCep);
-		add(new JTextField(null,"",5));
+		add(criarTexto("",5));
 		add(labelFruta);
-		add(new JTextField(null,"",5));
+		add(criarTexto("",5));
 		
 		add(labelObjeto);
-		add(new JTextField(null,"",5));
+		add(criarTexto("",5));
 		add(labelAnimal);
-		add(new JTextField(null,"",5));
+		add(criarTexto("",5));
+		
+	}
+
+	public JTextField criarTexto(String texto, int tamanho) {
+		JTextField t = new JTextField(null,texto,tamanho);
+		return t;
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		
 		
 	}
 

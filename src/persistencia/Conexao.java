@@ -10,15 +10,19 @@ public class Conexao {
 
 	// construtor
 	public Conexao() {
-		this.host = "127.0.0.1";
-		this.banco = "prova";
-		this.usuario = "root";
-		this.senha = "";
+//		 	this.host = "186.202.152.99";
+//	        this.banco = "da_java";
+//	        this.usuario = "da_java";
+//	        this.senha = "DB_test22!";
+			this.host = "127.0.0.1";
+			this.banco = "prova";
+			this.usuario = "root";
+			this.senha = "";
 	}
 
 	public Connection getConexao() {
-	//	String url="jdbc:mysql://" + this.host + "/" + this.banco+"?verifyServerCertificate=false&useSSL=true";
-		String url = "jdbc:mysql://" + this.host + "/" + this.banco;
+		String url="jdbc:mysql://" + this.host + "/" + this.banco+"?verifyServerCertificate=false&useSSL=true";
+	//	String url = "jdbc:mysql://" + this.host + "/" + this.banco;
 
 		try {
 			return DriverManager.getConnection(url, usuario, senha);

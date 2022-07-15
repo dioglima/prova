@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import negocio.Categorias;
+import negocio.Participante;
 
 
 
@@ -73,6 +75,7 @@ public class CategoriasDAO {
 	}
 
 	public boolean inserir(Categorias a) {
+		
 		int valor = 0;
 		try {
 			Connection conexao = new Conexao().getConexao();
@@ -80,14 +83,14 @@ public class CategoriasDAO {
 			PreparedStatement result = conexao.prepareStatement(
 					"INSERT INTO categorias (pessoa, carro, animal, cidadeEstadoPais, objeto, fruta, participante) VALUES (?,?,?,?,?,?,?)");
 
-			result.setInt(3, 10);
+			
 			result.setString(1, a.getPessoa());
 			result.setString(2, a.getCarro());
 			result.setString(3, a.getAnimal());
 			result.setString(4, a.getCidadeEstadoPais());
 			result.setString(5, a.getObjeto());
 			result.setString(6, a.getFruta());
-			//result.setInt(7, a.getId());
+			result.setInt(7, a.getParticipante().getId());
 
 			valor = result.executeUpdate();
 			conexao.close();
@@ -134,6 +137,7 @@ public class CategoriasDAO {
 
 	public void deletar(int id) {
 		try {
+
 
 			Connection conexao = new Conexao().getConexao();
 
